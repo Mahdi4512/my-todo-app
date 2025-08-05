@@ -75,15 +75,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-         'default': {
-      'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'django_5',  
-        'USER': 'root',  # نام کاربری پایگاه داده
-        'PASSWORD': 'm@hdimor@di',  # رمز عبور پایگاه داده
-        'HOST': 'localhost',  # یا IP سرور پایگاه داده
-        'PORT': '3306', 
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
 
 
 # Password validation
