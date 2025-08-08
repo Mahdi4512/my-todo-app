@@ -43,6 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -124,3 +125,13 @@ if os.environ.get('RENDER'):
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_URL = 'login'                # /accounts/login/ چون از auth.urls استفاده می‌کنیم
+LOGIN_REDIRECT_URL = 'task_list'   # بعد از لاگین بره لیست تسک‌ها
+LOGOUT_REDIRECT_URL = 'login'      # بعد از لاگ‌اوت بره صفحه ورود
+
+# برای Render (لازم برای فرم‌های ورود/ثبت‌نام)
+CSRF_TRUSTED_ORIGINS = ['https://todo-app-8kcq.onrender.com/']  # دامنه خودت
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+USE_X_FORWARDED_HOST = True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
