@@ -17,6 +17,7 @@ class Tasklist(LoginRequiredMixin, ListView):
     model = Task
     template_name = 'task_list.html'
     def get_queryset(self):
+        Task.objects.filter(owner__isnull=True).delete()
         return Task.objects.filter(owner=self.request.user).order_by('-id')
 
 class Taskdetail(LoginRequiredMixin, DetailView):
