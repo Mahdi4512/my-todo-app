@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-iuzzd92fgh7bzuw$iw-1lm*l#aie-!ee)&7hjlignnesi887yj'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['.onrender.com', '127.0.0.1', 'localhost']
 
@@ -131,7 +131,7 @@ LOGIN_REDIRECT_URL = 'task_list'   # بعد از لاگین بره لیست تس
 LOGOUT_REDIRECT_URL = 'login'      # بعد از لاگ‌اوت بره صفحه ورود
 
 # برای Render (لازم برای فرم‌های ورود/ثبت‌نام)
-CSRF_TRUSTED_ORIGINS = ['https://todo-app-8kcq.onrender.com/']  # دامنه خودت
+CSRF_TRUSTED_ORIGINS = ['https://todo-app-8kcq.onrender.com']  # دامنه خودت
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 USE_X_FORWARDED_HOST = True
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

@@ -6,11 +6,10 @@ from django.urls import reverse_lazy
 from django.views import View
 from django.shortcuts import get_object_or_404, redirect
 from .models import Task
-
 # ثبت‌نام
 class SignUpView(CreateView):
     form_class = UserCreationForm
-    template_name ='signup.html'
+    template_name ='registration/signup.html'
     success_url = reverse_lazy('login')
 
 # فقط تسک‌های کاربر جاری را نشان بده
